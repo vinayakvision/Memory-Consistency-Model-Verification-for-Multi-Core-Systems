@@ -1,0 +1,73 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Apr 09, 2026 at 16:59:55 IST
+irun
+	-access +rwc
+	mem_consistency_checker.sv
+	mem_consistency_tb.sv
+	shared_mem.sv
+Recompiling... reason: file './mem_consistency_tb.sv' is newer than expected.
+	expected: Thu Apr  9 16:45:03 2026
+	actual:   Thu Apr  9 16:59:47 2026
+file: mem_consistency_tb.sv
+	module worklib.mem_consistency_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		mem_consistency_tb
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.mem_consistency_tb:sv <0x242dc47b>
+			streams:  38, words: 43795
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              3       3
+		Registers:           68      68
+		Scalar wires:         8       -
+		Vectored wires:      21       -
+		Always blocks:        3       3
+		Initial blocks:       8       8
+		Pseudo assignments:  21      21
+	Writing initial simulation snapshot: worklib.mem_consistency_tb:sv
+Loading snapshot worklib.mem_consistency_tb:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> source /home/installs/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> run
+
+[0 ns] Reset released
+
+ TC1: Core0 Write, Core1 Read-back 
+  [PASS] TC1 read-back  got=0xdeadbeef
+  [PASS] TC1 no RAW violation
+
+ TC2: Read Different Address, No Violation 
+  [PASS] TC2 no RAW violation
+  [PASS] TC2 no WAW conflict
+
+ TC3: WAW, Two Cores Write Same Address 
+  [PASS] TC3 WAW conflict detected
+
+ TC4: 4-Core Write + Read-back 
+  [PASS] TC4 Core0  got=0x11111111
+  [PASS] TC4 Core1  got=0x22222222
+  [PASS] TC4 Core2  got=0x33333333
+  [PASS] TC4 Core3  got=0x44444444
+
+ TC5: Read Unwritten Addr, No False RAW 
+  [PASS] TC5 no false RAW
+  SIMULATION COMPLETE  |  PASS: 10  |  FAIL: 0
+   ALL TESTS PASSED - DESIGN VERIFIED 
+
+Simulation stopped via $stop(1) at time 805 NS + 0
+./mem_consistency_tb.sv:164     $stop;
+ncsim> simvision wave.shm
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> ^C
+ncsim> exit
+TOOL:	irun(64)	15.20-s086: Exiting on Apr 09, 2026 at 17:02:14 IST  (total: 00:02:19)

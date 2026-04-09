@@ -1,0 +1,6 @@
+s1(09Apr2026:16:35:33):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
+s2(09Apr2026:16:35:55):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
+s3(09Apr2026:16:41:13):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
+s4(09Apr2026:16:41:29):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
+s5(09Apr2026:16:46:24):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
+s6(09Apr2026:16:59:55):  irun -access +rwc mem_consistency_checker.sv mem_consistency_tb.sv shared_mem.sv 
